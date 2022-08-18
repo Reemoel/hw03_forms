@@ -20,7 +20,7 @@
               <div class="form-group row my-3 p-3">
                 {{ form.text.errors }}
               <label for="{{ form.text.id_for_label }}">
-                Текст записи
+                {{form.text.label}}
                 <span class="required text-danger" >*</span>
               </label>
                 {{ form.text }}
@@ -31,7 +31,7 @@
               <div class="form-group row my-3 p-3">
                 {{ form.group.errors }}
               <label for="{{ form.group.id_for_label }}">
-                Группа
+                {{ form.group.label }}
               </label>
               {{ form.group }}
               <small id="id_group-help" class="form-text text-muted">
