@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}
-{% for post in page_obj %}
-{% if forloop.first %}
-Записи сообщества {{post.group.title}}
-{% endif %}
-{% endfor %}
+Записи сообщества {{ group }}
 {% endblock %}
 
 {% block content %}
 {% for post in page_obj %}
 {% if forloop.first %}
-  <h1>{{post.group.title}}</h1>
+  <h1>{{ post.group.title }}</h1>
     <p>
-      {{post.group.description}}
+      {{ post.group.description }}
     </p>
 {% endif %}
       {% include 'includes/card.html' %}

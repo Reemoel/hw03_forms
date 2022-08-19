@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
     {% block title %}
-    {% for post in page_obj %}
-    {% if forloop.first %}
-    Профайл пользователя: {{ post.author.get_full_name }}
-    {% endif %}
-    {% endfor %}
+    Профайл пользователя: {{ author }}
     {% endblock %}
         
     {% block content %}
@@ -28,9 +24,10 @@
           {% if post.group %}
             <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
           {% endif %}
-          {% if post.author != request.user %}
-          {% else %}
-          <a href="{% url 'posts:post_edit' post_id=post.id %}">Редактировать</a>
+          {% if request.user == post.author %}
+          <a href="{% url 'posts:post_edit' post_id=post.id %}">
+            Редактировать
+          </a>
           {% endif %}
         {% if not forloop.last %}<hr>{% endif %}
         {% endfor %}
